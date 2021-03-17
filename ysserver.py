@@ -21,11 +21,44 @@ app = Bottle(__name__)
 def index(name):
     return template('<b>Hello {{name}}</b>!', name=name)
 
+@route('/login')
+def root():
+	# return template('templates/login.tpl', msg='')
+	return static_file('login.html', root='templates/')
 
-@route('/yuvaspandana')
+@route('/')
 def ncd_yuvaspandana():
 	data = get_ys_json()
 	return template('templates/assessment_ys_home.tpl', data=data)
+	
+	
+
+@route('/hello/<name>')
+def index(name):
+    return template('<b>Hello {{name}}</b>!', name=name)
+
+
+# @route('/ncdlanding')
+# def root():
+# 	# return template('templates/login.tpl', msg='')
+# 	return static_file('ncdlanding.html', root='templates/')
+
+@route('/home')
+def home():
+	#data = get_stress_json()
+    # to be created
+	return static_file('home.html', root='templates/')
+
+@route('/start_assessment')
+def start_assessment():
+	#data = get_stress_json()
+    # to be created
+	return static_file('start_assessment.html', root='templates/')
+@route('/assessment_report')
+def start_assessment():
+	#data = get_stress_json()
+    # to be created
+	return static_file('assessment_report.html', root='templates/')
 
 
 @route('/<filename:re:.*\.*>')

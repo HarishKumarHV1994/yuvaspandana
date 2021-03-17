@@ -26,6 +26,39 @@ def index(name):
 def ncd_yuvaspandana():
 	data = get_ys_json()
 	return template('templates/assessment_ys_home.tpl', data=data)
+	
+	
+
+@app.route('/hello/<name>')
+def index(name):
+    return template('<b>Hello {{name}}</b>!', name=name)
+
+@app.route('/login')
+def root():
+	# return template('templates/login.tpl', msg='')
+	return static_file('login.html', root='templates/')
+
+# @route('/ncdlanding')
+# def root():
+# 	# return template('templates/login.tpl', msg='')
+# 	return static_file('ncdlanding.html', root='templates/')
+
+@app.route('/home')
+def home():
+	#data = get_stress_json()
+    # to be created
+	return static_file('home.html', root='templates/')
+
+@app.route('/start_assessment')
+def start_assessment():
+	#data = get_stress_json()
+    # to be created
+	return static_file('start_assessment.html', root='templates/')
+@app.route('/assessment_report')
+def start_assessment():
+	#data = get_stress_json()
+    # to be created
+	return static_file('assessment_report.html', root='templates/')
 
 
 @app.route('/<filename:re:.*\.*>')
